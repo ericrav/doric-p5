@@ -1,3 +1,5 @@
+![sketch](./sketch.png)
+
 https://ericrav.github.io/doric-p5/
 
 ## Setup
@@ -13,3 +15,9 @@ yarn dev
 ```
 
 http://localhost:5173/
+
+## Export
+
+```
+yarn export
+```
