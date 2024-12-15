@@ -5,7 +5,6 @@ export const settings = {
 }
 
 export function setup() {
-  createCanvas(settings.dimensions[0], settings.dimensions[1]);
   background(211);
 }
 
