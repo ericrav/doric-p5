@@ -1,0 +1,32 @@
+name: Export sketch
+
+on:
+  push:
+    branches: ['main']
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn export
+      - name: Commit changed files
+        uses: stefanzweifel/git-auto-commit-action@v2.3.0
+        with:
+          commit_message: "[skip ci] Export sketch"
+          branch: ${{ github.head_ref }}
+          file_pattern: sketch.png
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
