@@ -28,5 +28,3 @@ jobs:
           commit_message: "[skip ci] Export sketch"
           commit_options: '--no-verify --signoff'
           file_pattern: sketch.png
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
