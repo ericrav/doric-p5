@@ -1,4 +1,4 @@
-name: Export sketch
+name: Update clocks
 
 on:
   push:
