@@ -487,7 +487,7 @@ data-urls@^4.0.0:
     whatwg-mimetype "^3.0.0"
     whatwg-url "^12.0.0"
 
-debug@4, debug@^4.3.7:
+debug@4, debug@^4.1.1, debug@^4.3.7:
   version "4.4.0"
   resolved "https://registry.npmjs.org/debug/-/debug-4.4.0.tgz"
   integrity sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==
@@ -642,6 +642,13 @@ gauge@^3.0.0:
     string-width "^4.2.3"
     strip-ansi "^6.0.1"
     wide-align "^1.1.2"
+
+gitlog@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/gitlog/-/gitlog-5.1.0.tgz"
+  integrity sha512-spyAYX1jeLGvK6mplNvlxb7zETa1DJTL7KKe9c8rwk6Tfmbju0cAk9VZuZx5xe4CkL3q/JkFHgP3eou/aV/31w==
+  dependencies:
+    debug "^4.1.1"
 
 glob@^7.1.3:
   version "7.2.3"

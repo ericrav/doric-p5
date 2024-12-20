@@ -1,0 +1,37 @@
+name: Export sketch
+
+on:
+  push:
+    branches: ['main']
+    paths: ['sketch/**']
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  update_clock:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn update-clock
+      - name: Commit changed files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "[skip ci] Updated clock"
+          commit_options: '--no-verify --signoff'
+          file_pattern: stats.json

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "export": "vite-node src/export.ts"
+    "export": "vite-node src/export.ts",
+    "update-clock": "vite-node src/clock.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
@@ -18,6 +19,7 @@
   "dependencies": {
     "@ericrav/p5.node": "^1.1.0",
     "@types/p5": "^1.7.6",
+    "gitlog": "^5.1.0",
     "p5": "^1.11.2"
   }
 }
