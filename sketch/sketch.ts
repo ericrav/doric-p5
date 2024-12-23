@@ -6,7 +6,6 @@ export const settings = {
 
 export function setup() {
   background("#f3f2eb");
-  noLoop();
 }
 
 export function draw() {
@@ -35,11 +34,9 @@ function drawWave(c, offset) {
     const rows = cols*2.9 - fromMid ** (1.4 + offset*0.02);
     for (let j = 0; j < rows; j++) {
       const y2 = y - vh(j ** (1.25 + (mid - fromMid) * 0.02));
-      // TODO: eric i want it to fade out in opacity like u did in the prev ver
-      // ok
       col.setAlpha(175 - (j * 5));
       stroke(col);
-      const angle = (1 - (fromMid ** (1 + j/(40 * fromMid**1.6))) * (j*0.275));
+      const angle = (1 - (fromMid ** (1 + j/(40 * fromMid**1.6))) * (j*0.275)) * (mouseX / width * 2) * (mouseY / height * 2);
       if (i < mid) {
         line(x, y2, x + length, y2 + angle);
       } else {
