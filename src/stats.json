@@ -1,19 +1,19 @@
 {
-  "lastCommit": "2024-12-20T06:01:20.000Z",
-  "turn": "Dora",
+  "lastCommit": "2024-12-23T05:32:11.000Z",
+  "turn": "Eric",
   "authors": {
     "Eric": {
-      "time": 10367000,
+      "time": 10693000,
       "commit": {
-        "hash": "a15e38a5da3d07995279e50409922b30edd6f890",
+        "hash": "66ec7888e8e58acd7f5f44358ab06d9a0b81a6a4",
         "message": "ascend"
       }
     },
     "Dora": {
-      "time": 434175000,
+      "time": 691300000,
       "commit": {
-        "hash": "c0197ce7153f82d35f062031bfb51b747c19441d",
-        "message": "riso??"
+        "hash": "2e681ef7bea81e5b05a748db6baafd37d22e9be5",
+        "message": "some movement"
       }
     }
   }
