@@ -10,33 +10,45 @@ export function setup() {
 
 export function draw() {
   background("#f3f2eb");
-  drawWave("#FFFF00", 0);
-  drawWave("#FF00FF", 2);
-  drawWave("#00FFFF", 5);
+  drawWave("#111142AA", 0);
+  drawWave("#44444499", 2);
+  drawWave("#00000033", 5);
 }
 
 function drawWave(c, offset) {
+  const originalAlpha = alpha(c);
   let col = color(c);
-  col.setAlpha(255);
+  // col.setAlpha(255);
   stroke(col);
   strokeWeight(em(0.75));
 
   let y = vh(97.5) + offset
-  const gap = vw(4);
-  const cols = 36;
-  const margin = vw(1);
+  const gap = vw(0.5);
+  const cols = 85;
+  const margin = vw(0.1);
   const length = (width - margin * 2 - gap*(cols-1)) / cols;
   let x = margin + offset;
 
   for (let i = 0; i < cols; i++) {
     const mid = Math.ceil(cols / 2);
     const fromMid = Math.abs(i - mid);
-    const rows = cols*2.9 - fromMid ** (1.4 + offset*0.02);
+    const rows = cols*2.8 - fromMid ** (1.4 + offset*0.02);
+
+    // Calculate influence for the entire column
+    const columnX = x + length/2;
+    const mouseDistance = Math.abs(mouseX - columnX) ** 1.2;
+    const maxDistance = vw(40);
+    const influence = Math.max(0, 1 - mouseDistance/maxDistance);
+
     for (let j = 0; j < rows; j++) {
-      const y2 = y - vh(j ** (1.25 + (mid - fromMid) * 0.02));
-      col.setAlpha(175 - (j * 5));
+      const y2 = y - vh(j ** (1.15 + (mid - fromMid) * 0.02));
+      col.setAlpha(originalAlpha - (j * 5));
       stroke(col);
-      const angle = (1 - (fromMid ** (1 + j/(40 * fromMid**1.6))) * (j*0.275)) * (mouseX / width * 2) * (mouseY / height * 2);
+
+      // Calculate angle with distance influence
+      const baseAngle = (1 - (fromMid ** (1 + j/(40 * fromMid**1.6))) * (j*0.275));
+      const angle = baseAngle * influence * (2.5 - 4*fromMid/cols); // increased multiplier to 5 for stronger effect
+
       if (i < mid) {
         line(x, y2, x + length, y2 + angle);
       } else {
