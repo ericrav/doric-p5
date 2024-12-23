@@ -2,6 +2,7 @@ import { em, vh, vw } from "./units";
 
 export const settings = {
   dimensions: [800, 600],
+  mouse: [350, 400],
 }
 
 export function setup() {

@@ -9,6 +9,9 @@ import('../sketch/sketch').then(({ setup, draw }) => {
     createCanvas(settings.dimensions[0], settings.dimensions[1]);
     setup();
     noLoop();
+    // move mouse to position
+    mouseX = settings.mouse[0];
+    mouseY = settings.mouse[1];
   }
 
   (window as any).draw = () => {
