@@ -37,6 +37,8 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
+      - name: Update clock
+        run: yarn run update-clock
       - name: Build
         run: yarn run build
       - name: Setup Pages
